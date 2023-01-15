@@ -116,6 +116,21 @@ stage('Docker image building') {
 
 }
 
+stage('push to docker hub') {
+steps {
+
+script {
+
+    withCredentials([string(credentialsId: 'docker_cred', variable: 'docker_hub_cred')]) {
+    sh 'docker login -u jojotesthub -p $docker_hub_cred'
+    sh 'docker image push jojotesthub/$JOB_NAME:$BUILD_ID'
+}
+}
+
+}
+
+}
+
 }
 
 }
