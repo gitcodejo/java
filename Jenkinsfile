@@ -94,7 +94,7 @@ nexusArtifactUploader artifacts:
          nexusVersion: 'nexus3', 
          protocol: 'http', 
          repository: 'demoapp-relaease', 
-         version: "$(readPomVer.version)"
+         version: "${readPomVer.version}"
 
     
 }
