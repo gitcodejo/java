@@ -78,6 +78,7 @@ stage('nexus repo creation') {
 steps {
 
 script {
+    def readpomVer = readMavenPom file: 'pom.xml'
 nexusArtifactUploader artifacts: 
 
     [
@@ -93,7 +94,7 @@ nexusArtifactUploader artifacts:
          nexusVersion: 'nexus3', 
          protocol: 'http', 
          repository: 'demoapp-relaease', 
-         version: '1.0.0'
+         version: "$(readpomVer)"
 
     
 }
