@@ -59,14 +59,44 @@ steps {
 }
 }
 
-stage("Quality Gate Status") {
+stage('Quality Gate Status') {
 
 steps {
 
   script{
-  waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
+
+    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
 
   }
+
+}
+
+}
+
+stage('nexus repo creation') {
+
+steps {
+
+script {
+nexusArtifactUploader artifacts: 
+
+    [
+         [artifactId: 'springboot', 
+         classifier: '', 
+         file: 'target/Uber.jar', 
+         type: 'jar'
+         ]
+    ], 
+         credentialsId: 'nexuspass', 
+         groupId: 'com.example', 
+         nexusUrl: '15.206.185.162:8081', 
+         nexusVersion: 'nexus3', 
+         protocol: 'http', 
+         repository: 'demoapp-relaease', 
+         version: '1.0.0'
+
+    
+}
 
 }
 
