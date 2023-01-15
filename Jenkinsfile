@@ -35,6 +35,16 @@ steps {
 
 }
 
+stage('maavan build') {
+
+steps {
+
+sh 'mvn clean install'
+
+}
+
+}
+
 
 }
 
