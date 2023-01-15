@@ -94,7 +94,7 @@ nexusArtifactUploader artifacts:
          nexusUrl: '15.206.185.162:8081', 
          nexusVersion: 'nexus3', 
          protocol: 'http', 
-         repository: 'nexusRepo', 
+         repository: nexusRepo, 
          version: "${readPomVer.version}"
 
     
