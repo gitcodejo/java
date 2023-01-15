@@ -25,6 +25,16 @@ steps {
 }
 
 
+stage('integration testing') {
+
+steps {
+
+ sh 'mvn verify -DskipUnitTests'
+
+}
+
+}
+
 
 }
 
