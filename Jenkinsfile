@@ -79,7 +79,7 @@ steps {
 
 script {
 def readPomVer = readMavenPom file: 'pom.xml'
-def nexusRepo = readPomVer.version.endsWith.("SNAPSHOT") ? "demoapp.snapshot" : "demoapp-relaease"
+def nexusRepo = readPomVer.version.endsWith("SNAPSHOT") ? "demoapp.snapshot" : "demoapp-relaease"
 nexusArtifactUploader artifacts: 
 
     [
