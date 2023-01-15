@@ -107,9 +107,13 @@ nexusArtifactUploader artifacts:
 stage('Docker image building') {
   steps {
 
+    script{
+
     sh 'docker image build -t $JOB_NAME:$BUILD_ID .'
     sh 'docker image tag $JOB_NAME:$BUILD_ID jojotesthub/$JOB_NAME:$BUILD_ID'
   }   
+}
+
 }
 
 }
